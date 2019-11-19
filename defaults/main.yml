@@ -14,3 +14,17 @@ nginx_stable_repo: true
 
 # Keep default configurations under /etc/nginx
 nginx_keep_default_configs: false
+
+
+######################################################################
+# Expert users only!
+######################################################################
+
+# Convert the ansible_distribution variable into the Nginx package name
+nginx_distribution_name: >-
+  {{
+    {
+      'CentOS': 'centos',
+      'RedHat': 'rhel'
+    }[ansible_distribution]
+  }}
