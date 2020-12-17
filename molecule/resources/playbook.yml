@@ -3,3 +3,10 @@
   hosts: all
   roles:
     - role: ansible-role-nginx
+
+  tasks:
+    - name: Install ss for tests
+      become: true
+      package:
+        name: iproute
+        state: present
